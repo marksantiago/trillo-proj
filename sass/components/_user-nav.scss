@@ -1,30 +1,59 @@
 .user-nav {
-  background-color: greenyellow;
+  //background-color: greenyellow;
+  align-self: stretch; /* align each flex items to `stretch` along cross-axis.
+                          Overrides flex item's `align-items` value set on flex container.
+                          Flex container is `.header` */
+
+  display: flex; // nested flexbox.. this is a flex item, also a flex container
+  align-items: center;
+
+  & > * { // target direct children of `.user-nav`
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%; // occupy full height of flex container
+
+    display: flex;
+    align-items: center;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
 
   &__icon-box {
-
+    position: relative; // to absolute position user notification items, we first set parent elem to `relative`
   }
 
   &__icon {
     height: 2.25rem;
     width: 2.25rem;
+    fill: var(--color-grey-dark-2); // change color of svg `.user-nav` icons
   }
 
   &__notification {
+    font-size: .8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute; // position user notification items
+    top: 1.5rem;
+    right: 1.1rem;
 
-  }
-
-  &__user {
-
+    display: flex; // we use flexbox to center the text inside user notification bubble
+    align-items: center;
+    justify-content: center;
   }
 
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
+    margin-right: 1rem;
   }
 
-  &__user-name {
+  // &__user-name {
 
-  }
+  // }
 
 }
